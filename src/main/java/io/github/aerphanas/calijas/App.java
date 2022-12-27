@@ -49,29 +49,21 @@ public class App
 
     Calculator docalc = new Caljas(varx, vary);
 
-    for (int i = 0; i < symbol.length; i++) {
-      if ( inputOperator.equals(symbol[i]) ){
-        switch (inputOperator) {
-          case "+":
-            result = docalc.add();
-            break;
-          case "-":
-            result = docalc.min();
-            break;
-          case "*":
-            result = docalc.mul();
-            break;
-          case "/":
-            result = docalc.div();
-            break;
-        }
-      } else {
-        System.err.println("program saatini hanya mensupport + - * /");
-        System.exit(1);
+    switch (inputOperator) {
+      case "+":
+        result = docalc.add();
         break;
-      }
-    }  
+      case "-":
+        result = docalc.min();
+        break;
+      case "*":
+        result = docalc.mul();
+        break;
+      case "/":
+        result = docalc.div();
+        break;
+    }
     System.out.printf("hasil %d %s %d adalah %d", varx, inputOperator, vary, result);
   }
+  
 }
-
