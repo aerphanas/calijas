@@ -62,8 +62,11 @@ public class App
       case "/":
         result = docalc.div();
         break;
+      default:
+      System.err.println("program saatini hanya mensupport + - * /");
+      System.exit(1);
     }
     System.out.printf("hasil %d %s %d adalah %d", varx, inputOperator, vary, result);
   }
-  
+
 }

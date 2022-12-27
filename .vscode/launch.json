@@ -16,7 +16,7 @@
       "request": "launch",
       "mainClass": "io.github.aerphanas.calijas.App",
       "projectName": "calijas",
-      "args": "-x 10 -y 10 -o -"
+      "args": "-x 10 -y 10 -o ="
     }
   ]
 }
