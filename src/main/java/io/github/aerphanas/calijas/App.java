@@ -39,7 +39,6 @@ public class App
     int vary = 0;
     int result = 0;
 
-    String [] symbol = {"+", "-", "*", "/"};
     try {
       varx = Integer.parseInt(inputVarx);
       vary = Integer.parseInt(inputVary);
