@@ -1,3 +1,26 @@
+/* 
+ * Pertama, terdapat sebuah kelas bernama Options yang digunakan untuk menyimpan opsi yang dapat diterima oleh aplikasi.
+ * Kemudian, terdapat tiga objek bernama variablex, variabley, dan operator yang masing-masing merupakan opsi yang dapat diterima oleh aplikasi.
+ * Masing-masing objek memiliki nama singkat ("x", "y", dan "o"), nama panjang ("varx", "vary", dan "operator"),
+ * serta deskripsi yang akan ditampilkan saat menjalankan perintah caljas -h. Selain itu, masing-masing objek juga diberi flag setRequired(true),
+ * yang berarti bahwa objek tersebut harus diberikan saat menjalankan aplikasi.
+ * Kemudian, objek-objek tersebut ditambahkan ke objek Options menggunakan method addOption().
+ * 
+ * Selanjutnya, terdapat sebuah objek bernama parser yang merupakan instansiasi dari kelas DefaultParser,
+ * yang digunakan untuk memparsing input yang diberikan saat menjalankan aplikasi.
+ * Kemudian, terdapat objek bernama formatter yang merupakan instansiasi dari kelas HelpFormatter,
+ * yang akan digunakan untuk menampilkan bantuan saat terjadi error saat memparsing input.
+ * 
+ * Kemudian, terdapat sebuah objek bernama cmd yang akan menyimpan hasil parsing dari input yang diberikan.
+ * Pemanggilan method parse() pada objek parser akan mencoba memparsing input yang diberikan dan akan mengembalikan objek CommandLine.
+ * Jika terjadi error saat memparsing input, maka akan ditampilkan pesan error dan bantuan menggunakan objek formatter,
+ * kemudian program akan diakhiri dengan menjalankan System.exit(1).
+ * 
+ * Setelah berhasil memparsing input, maka nilai dari input akan diambil menggunakan method getOptionValue() pada objek cmd
+ * dan disimpan pada variabel inputVary, inputVarx, dan inputOperator. Kemudian, variabel-variabel tersebut akan dikonversi menjadi tipe integer
+ * dan disimpan pada variabel varx dan vary. Jika terjadi error saat konversi, maka akan ditampilkan stack trace error.
+ */
+
 package io.github.aerphanas.calijas;
 
 import org.apache.commons.cli.*;
@@ -5,17 +28,18 @@ import org.apache.commons.cli.*;
 public class App 
 {
   public static void main( String[] args ) {
+
     Options pilihan = new Options();
 
-    Option variablex = new Option("x", "varx", true, "tolong masukan variabel x");
+    Option variablex = new Option("x", "varx", true, "angka yang akan dikalkulasi");
     variablex.setRequired(true);
     pilihan.addOption(variablex);
 
-    Option variabley = new Option("y", "vary", true, "tolong masukan variabel y");
+    Option variabley = new Option("y", "vary", true, "angka yang akan dikalkulasi");
     variabley.setRequired(true);
     pilihan.addOption(variabley);
 
-    Option operator = new Option("o", "operator", true, "tolong masukan operator");
+    Option operator = new Option("o", "operator", true, "operator untuk operasi yang akan dilakukan");
     operator.setRequired(true);
     pilihan.addOption(operator);
 
